@@ -1,0 +1,10 @@
+
+server:
+  port: 8769
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    serviceUrl:
+      defaultZone: http://wifidns.top:8761/eureka/
