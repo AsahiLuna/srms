@@ -7,7 +7,7 @@ spring:
     name: user
   data:
     mongodb:
-      uri: mongodb://localhost:27017/test
+      uri: mongodb://test:123456@localhost:27017/test
   main:
     allow-bean-definition-overriding: true
 eureka:

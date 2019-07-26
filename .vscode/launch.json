@@ -1,0 +1,44 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-TestApplication<test>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "cc.alpgo.srms.test.TestApplication",
+            "projectName": "test",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-ZuulApplication<zuul>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "cc.alpgo.srms.zuul.ZuulApplication",
+            "projectName": "zuul",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-EurekaApplication<eureka>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "cc.alpgo.srms.eureka.EurekaApplication",
+            "projectName": "eureka",
+            "args": ""
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-UserApplication<user>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "cc.alpgo.srms.user.UserApplication",
+            "projectName": "user",
+            "args": ""
+        }
+    ]
+}

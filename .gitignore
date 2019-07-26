@@ -13,3 +13,7 @@ buildNumber.properties
 /.idea/
 /.settings/
 *.iml
+.settings
+.project
+.classpath
+.factorypath
