@@ -20,6 +20,7 @@
         <module>zuul</module>
         <module>user</module>
         <module>test</module>
+        <module>product</module>
     </modules>
 
     <properties>

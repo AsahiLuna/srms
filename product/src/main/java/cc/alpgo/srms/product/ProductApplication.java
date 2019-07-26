@@ -1,4 +1,4 @@
-package cc.alpgo.srms.user;
+package cc.alpgo.srms.product;
 
 import com.mongodb.reactivestreams.client.MongoClient;
 import com.mongodb.reactivestreams.client.MongoClients;
@@ -11,9 +11,9 @@ import org.springframework.data.mongodb.repository.config.EnableReactiveMongoRep
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableReactiveMongoRepositories
-public class UserApplication extends AbstractReactiveMongoConfiguration {
+public class ProductApplication extends AbstractReactiveMongoConfiguration {
     public static void main(String[] args) {
-        SpringApplication.run(UserApplication.class, args);
+        SpringApplication.run(ProductApplication.class, args);
     }
 
     @Override
@@ -23,6 +23,6 @@ public class UserApplication extends AbstractReactiveMongoConfiguration {
 
     @Override
     protected String getDatabaseName() {
-        return "user";
+        return "test";
     }
 }
