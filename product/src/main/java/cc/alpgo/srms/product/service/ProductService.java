@@ -11,7 +11,7 @@ public interface ProductService {
 
     Mono<Product> getProductById(final String id);
 
-    Mono<Product> createOrUpdateProduct(final Product product);
+    Mono<Product> createOrUpdateProduct(final Mono<Product> product);
 
     Mono<Void> deleteProduct(final String id);
 }

@@ -23,7 +23,8 @@ public class ProductController {
     }
     @PostMapping("")
     public Mono<Product> createProduct(@RequestBody final Product product) {
-        return productService.createOrUpdateProduct(product);
+        Mono<Product> monoProduct = Mono.create(i -> i.success(product));
+        return productService.createOrUpdateProduct(monoProduct);
     }
     @DeleteMapping("/{id}")
     public Mono<Void> deleteProduct(@PathVariable String id) {

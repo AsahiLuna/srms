@@ -23,8 +23,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Mono<Product> createOrUpdateProduct(Product product) {
-        return productRepository.save(product).log("saveOneProduct");
+    public Mono<Product> createOrUpdateProduct(Mono<Product> productMono) {
+        return productMono.flatMap(productRepository::save).log("saveOneProduct");
     }
 
     @Override
