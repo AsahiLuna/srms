@@ -10,6 +10,31 @@ spring:
       uri: mongodb://test:123456@localhost:27017/test
   main:
     allow-bean-definition-overriding: true
+  cloud:
+    stream:
+      defaultBinder: defaultRabbit
+      bindings:
+        input:
+          description: stream-rabbitmq-product
+          contentType: application/json
+          binder: defaultRabbit
+          group: srms-group
+      rabbit:
+        bindings:
+          input:
+            consumer:
+              bindingRoutingKey: srms-key.*
+      binders:
+        defaultRabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: localhost
+                port: 5672
+                username: admin
+                password: 123456
+                virtual-host: /
 eureka:
   instance:
     preferIpAddress: true
