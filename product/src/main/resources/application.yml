@@ -7,7 +7,7 @@ spring:
     name: product
   data:
     mongodb:
-      uri: mongodb://test:123456@localhost:27017/test
+      uri: mongodb://admin:123456@wifidns.top:27017/test
   main:
     allow-bean-definition-overriding: true
   cloud:
@@ -30,10 +30,10 @@ spring:
           environment:
             spring:
               rabbitmq:
-                host: localhost
+                host: wifidns.top
                 port: 5672
-                username: admin
-                password: 123456
+                username: rabbitmq
+                password: rabbitmq
                 virtual-host: /
 eureka:
   instance:
