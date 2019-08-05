@@ -7,7 +7,7 @@ spring:
     name: product
   data:
     mongodb:
-      uri: mongodb://admin:123456@localhost:27017/admin
+      uri: mongodb://test:123456@192.168.3.129:27017/hi
   main:
     allow-bean-definition-overriding: true
   cloud:

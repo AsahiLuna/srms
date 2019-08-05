@@ -1,11 +1,13 @@
 package cc.alpgo.srms.product;
 
+import cc.alpgo.srms.product.event.Event;
 import com.mongodb.reactivestreams.client.MongoClient;
 import com.mongodb.reactivestreams.client.MongoClients;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.cloud.stream.annotation.Input;
@@ -27,32 +29,22 @@ import java.time.Duration;
 @EnableReactiveMongoRepositories
 //@EnableBinding({Source.class, Sink.class, Processor.class})
 @EnableBinding({Source.class, Sink.class})
-public class ProductApplication extends AbstractReactiveMongoConfiguration {
+public class ProductApplication {
     private static final Logger LOGGER = LoggerFactory.getLogger(ProductApplication.class);
 
     public static void main(String[] args) {
         SpringApplication.run(ProductApplication.class, args);
     }
 
-    @Override
-    public MongoClient reactiveMongoClient() {
-        return MongoClients.create();
-    }
-
-    @Override
-    protected String getDatabaseName() {
-        return "test";
-    }
-
     @StreamEmitter
     public void emit(@Output(Source.OUTPUT) FluxSender output) {
-        output.send(Flux.interval(Duration.ofSeconds(1)).map(l -> "Hello World"));
+        output.send(Flux.interval(Duration.ofMillis(1000)).map(Event::new));
     }
 
     @StreamListener
-    public void receive(@Input(Sink.INPUT) Flux<String> inputs) {
-        inputs.map(String::toUpperCase)
-                .subscribe(input -> LOGGER.info("Received: {}", input));
+    public void receive(@Input(Sink.INPUT) Flux<Event> events) {
+        events.map(Object::toString)
+                .subscribe(event -> LOGGER.info("Event: {}", event));
     }
 
 //    @StreamListener
